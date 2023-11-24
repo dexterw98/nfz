@@ -1,0 +1,2 @@
+class Pacjent < ApplicationRecord
+end
