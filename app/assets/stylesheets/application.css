@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ .sort-link {
+  text-decoration: none;
+  color: #000;
+}
+
+th {
+  cursor: pointer;
+}

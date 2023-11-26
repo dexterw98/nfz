@@ -4,8 +4,11 @@ require 'csv'
 
 # This class is responsible for handling Pacjents
 class PacjentsController < ApplicationController
+  include Pagy::Backend
+  include Pagy::Frontend 
   def index
-    @pacjenci = Pacjent.all
+    @q = Pacjent.ransack(params[:q])
+    @pagy, @pacjents = pagy(@q.result(distinct: true))
   end
 
   def show

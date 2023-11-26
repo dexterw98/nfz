@@ -1,9 +1,32 @@
 <h1>Pacjenci#index</h1>
-<ul>
-  <% @pacjenci.each do |pacjent| %>
- <p><%= "#{pacjent.imie} #{pacjent.nazwisko}" %><a href="/pacjents/<%= pacjent.id %>">test </a></p>
+<%= search_form_for @q do |f| %>
+  <%= f.label :nazwisko_cont, "Nazwisko zawiera" %>
+  <%= f.search_field :nazwisko_cont %>
 
-    </li>
-  <% end %>
-</ul>
+  <%= f.label :plec_eq, "Płeć" %>
+  <%= f.select :plec_eq, Pacjent.pluck(:plec).uniq, include_blank: true %>
+
+  <%= f.submit "Filtruj" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link @q, :nazwisko %></th>
+      <th><%= sort_link @q, :urodziny %></th>
+      <th>Płeć</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pacjents.each do |pacjent| %>
+      <tr>
+        <td><%= pacjent.nazwisko %></td>
+        <td><%= pacjent.urodziny %></td>
+        <td><%= pacjent.plec %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%== pagy_nav(@pagy) %>
 
