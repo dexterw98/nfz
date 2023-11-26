@@ -1,0 +1,21 @@
+<h1>Rezerwacja wizyty</h1>
+
+<%= form_with(model: @appointment, url: appointments_path, method: :post) do |form| %>
+  <%= form.hidden_field :pacjent_id, value: params[:pacjent_id] %>
+
+    <div class="field">
+    <%= form.label :doktor_id, 'Lekarz' %>
+    <%= form.collection_select :doktor_id, Doktor.all, :id, :imie %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_local_field :date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Zarezerwuj' %>
+  </div>
+<% end %>
+
+<%= link_to 'Powrót do profilu pacjenta', pacjents_path(params[:pacjent_id]) %>
