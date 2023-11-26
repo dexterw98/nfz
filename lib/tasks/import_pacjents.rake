@@ -17,9 +17,9 @@ private
 def extract_pacjent_attributes(row)
   pesel_dane = odczytaj_pesel(row['pesel'])
   {
-    imie: row['first_name'],
-    nazwisko: row['last_name'],
-    miasto: row['city'],
+    imie: row['first_name'].capitalize,
+    nazwisko: row['last_name'].capitalize,
+    miasto: row['city'].capitalize,
     pesel: row['pesel'],
     urodziny: pesel_dane[:data_urodzenia],
     plec: pesel_dane[:plec]
