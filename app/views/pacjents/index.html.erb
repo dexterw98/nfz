@@ -1,0 +1,9 @@
+<h1>Pacjenci#index</h1>
+<ul>
+  <% @pacjenci.each do |pacjent| %>
+ <p><%= "#{pacjent.imie} #{pacjent.nazwisko}" %><a href="/pacjents/<%= pacjent.id %>">test </a></p>
+
+    </li>
+  <% end %>
+</ul>
+

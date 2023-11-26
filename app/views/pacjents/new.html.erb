@@ -1,0 +1,4 @@
+<h1>Nowy Pacjent</h1>
+<%= form_with(model: @pacjent, url: pacjenci_path, method: :get) do |form| %>
+  <%= form.submit 'Dodaj Pacjenta' %>
+<% end %> 
