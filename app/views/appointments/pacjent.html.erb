@@ -1,0 +1,22 @@
+<h1>Lista wizyt pacjenta <%= @pacjent.full_name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Pacjent</th>
+      <th>Lekarz</th>
+      <th>Cena</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.date %></td>
+        <td><%= appointment.pacjent.full_name %></td>
+        <td><%= appointment.doktor.full_name %></td>
+        <td><%= number_to_currency(appointment.cena, unit: "PLN", format: "%n %u") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

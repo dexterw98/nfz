@@ -13,9 +13,14 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def pacjent
+    @pacjent = Pacjent.find(params[:id])
+    @appointments = @pacjent.appointments
+  end
+
   private
 
   def appointment_params
-    params.require(:appointment).permit(:doktor_id, :pacjent_id, :date)
+    params.require(:appointment).permit(:doktor_id, :pacjent_id, :date, :godzina, :cena)
   end
 end

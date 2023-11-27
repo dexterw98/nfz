@@ -9,9 +9,20 @@
   </div>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :data %>
     <%= form.datetime_local_field :date %>
   </div>
+
+  <div class="field">
+    <%= form.label :godzina %>
+    <%= form.time_field :godzina, step: 1200 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cena %>
+    <%= form.text_field :cena %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit 'Zarezerwuj' %>

@@ -13,16 +13,21 @@
   <thead>
     <tr>
       <th><%= sort_link @q, :nazwisko %></th>
+      <th>Imie</th>
       <th><%= sort_link @q, :urodziny %></th>
       <th>Płeć</th>
+      <th>Liczba zarezerwowanych wizyt</th>
     </tr>
   </thead>
   <tbody>
     <% @pacjents.each do |pacjent| %>
       <tr>
         <td><%= pacjent.nazwisko %></td>
+        <td><%= pacjent.imie %></td>
         <td><%= pacjent.urodziny %></td>
         <td><%= pacjent.plec %></td>
+        <td><%= link_to pacjent.appointments.count, pacjent_appointment_path(pacjent) %></td>
+        <td><%= link_to 'Rezerwuj wizytę', new_appointment_path(pacjent_id: pacjent.id) %></td>
       </tr>
     <% end %>
   </tbody>
