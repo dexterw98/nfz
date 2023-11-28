@@ -54,5 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'business_time'
+gem 'chartkick'
 gem 'pagy'
 gem 'ransack'
+gem 'groupdate'

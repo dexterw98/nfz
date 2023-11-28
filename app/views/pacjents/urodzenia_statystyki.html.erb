@@ -1,2 +1,6 @@
 <h1>Statystyki urodzeń pacjentów</h1>
-<canvas data-controller="chart" data-chart-data="<%= @urodzenia_statystyki.to_json %>" width="400" height="200"></canvas>
+<div data-controller="chart" data-chart-data="<%= @urodzenia_statystyki.to_json %>">
+  <canvas id="chart"></canvas>
+</div>
+
+<%= column_chart @urodzenia_statystyki%>
