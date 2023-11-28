@@ -28,6 +28,15 @@ class PacjentsController < ApplicationController
     end
   end
 
+  def urodzenia_statystyki
+    @urodzenia_statystyki = Pacjent.grouped_by_birth_decade
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { data: @urodzenia_statystyki.map { |record| { label: "#{record.birth_decade}-#{record.birth_decade + 9}", value: record.count } } } }
+    end
+  end
+
   def patient_params
     params.require(:pacjent).permit(:imie, :nazwisko, :data_urodzenia, :miasto, :plec, :pesel)
   end
