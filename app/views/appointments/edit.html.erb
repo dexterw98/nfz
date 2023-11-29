@@ -8,16 +8,14 @@
         <li class="nav-item"><%= link_to "Statystyka", urodzenia_statystyki_pacjents_path, class: 'nav-link' %></li>
       </ul>
 </header>
-<h1>Rezerwacja wizyty pacjenta</h1>
-<%= form_with(model: @appointment, url: appointments_path, method: :post) do |form| %>
-  <%= form.hidden_field :pacjent_id, value: params[:pacjent_id] %>
-
+<h1>Edycja wizyty pacjenta</h1>
+<%= form_with(model: @appointment, url: appointment_path, method: :patch) do |form| %>
+  <%= form.hidden_field :pacjent_id, value: @appointment.pacjent_id %>
 <div class="form-inline">
-  <div class="col-7">
-    <div class="field">
+
+  <div class="field">
       <%= form.label :doktor_id, 'Lekarz' %>
       <%= form.collection_select :doktor_id, Doktor.all, :id, :imie, class: 'custom-select my-1 mr-sm-2' %>
-    </div>
   </div>
 
   <div class="col">
@@ -37,5 +35,3 @@
     </div>
 </div>
 <% end %>
-
-<%= link_to 'Powrót do profilu pacjenta', pacjents_path(params[:pacjent_id]) %>

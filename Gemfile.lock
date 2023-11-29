@@ -58,9 +58,15 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    autoprefixer-rails (10.4.16.0)
+      execjs (~> 2)
     bindex (0.8.1)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
+    bootstrap (5.0.2)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.9.2, < 3)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     business_time (0.13.0)
       activesupport (>= 3.2.0)
@@ -80,6 +86,7 @@ GEM
     crass (1.0.6)
     date (3.3.4)
     erubi (1.12.0)
+    execjs (2.9.1)
     ffi (1.16.3)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -122,6 +129,7 @@ GEM
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pagy (6.2.0)
+    popper_js (2.11.8)
     public_suffix (5.0.4)
     puma (4.3.12)
       nio4r (~> 2.0)
@@ -232,6 +240,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  bootstrap (~> 5.0.2)
   business_time
   byebug
   capybara (>= 2.15)

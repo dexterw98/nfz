@@ -11,36 +11,35 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2023_11_27_125551) do
-
-  create_table "appointments", force: :cascade do |t|
-    t.integer "doktor_id", null: false
-    t.datetime "date"
-    t.integer "pacjent_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.float "cena"
-    t.index ["doktor_id"], name: "index_appointments_on_doktor_id"
-    t.index ["pacjent_id"], name: "index_appointments_on_pacjent_id"
+  create_table 'appointments', force: :cascade do |t|
+    t.integer 'doktor_id', null: false
+    t.datetime 'date'
+    t.integer 'pacjent_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.float 'cena'
+    t.index ['doktor_id'], name: 'index_appointments_on_doktor_id'
+    t.index ['pacjent_id'], name: 'index_appointments_on_pacjent_id'
   end
 
-  create_table "doktors", force: :cascade do |t|
-    t.string "imie"
-    t.string "nazwisko"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'doktors', force: :cascade do |t|
+    t.string 'imie'
+    t.string 'nazwisko'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "pacjents", force: :cascade do |t|
-    t.string "imie"
-    t.string "nazwisko"
-    t.date "urodziny"
-    t.string "miasto"
-    t.string "pesel"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "plec"
+  create_table 'pacjents', force: :cascade do |t|
+    t.string 'imie'
+    t.string 'nazwisko'
+    t.date 'urodziny'
+    t.string 'miasto'
+    t.string 'pesel'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'plec'
   end
 
-  add_foreign_key "appointments", "doktors"
-  add_foreign_key "appointments", "pacjents"
+  add_foreign_key 'appointments', 'doktors'
+  add_foreign_key 'appointments', 'pacjents'
 end

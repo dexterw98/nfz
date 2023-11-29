@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This class represents a patient.
 class Pacjent < ApplicationRecord
   has_many :appointments
 
@@ -6,6 +9,7 @@ class Pacjent < ApplicationRecord
            .order("strftime('%Y', urodziny)")
            .count
   end
+
   def full_name
     "#{imie} #{nazwisko}"
   end

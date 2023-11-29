@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This class represents a Doktor and provides methods for managing appointments and checking availability.
 class Doktor < ApplicationRecord
   has_many :appointments
 

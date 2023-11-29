@@ -1,12 +1,23 @@
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4">NFZ</span>
+      </a>
+      <ul class="nav nav-pills">
+        <li class="nav-item"><%= link_to 'Pacjenci', root_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Statystyka", urodzenia_statystyki_pacjents_path, class: 'nav-link' %></li>
+      </ul>
+</header>
 <h1>Lista wizyt pacjenta <%= @pacjent.full_name %></h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Data</th>
       <th>Pacjent</th>
       <th>Lekarz</th>
       <th>Cena</th>
+      <th>Akcje</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +27,14 @@
         <td><%= appointment.pacjent.full_name %></td>
         <td><%= appointment.doktor.full_name %></td>
         <td><%= number_to_currency(appointment.cena, unit: "PLN", format: "%n %u") %></td>
+        <td>
+        <div>
+          <%= link_to 'edytuj', edit_appointment_path(appointment), class: "btn btn-primary" %>
+          <%= form_for appointment, html: { method: :delete, data: { confirm: 'Are you sure?' }, style: 'display: inline-block;' } do |f| %>
+            <%= f.submit 'Usun', class: "btn btn-danger" %>
+          <% end %>
+        </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
